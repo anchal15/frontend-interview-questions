@@ -1,0 +1,27 @@
+/** Given a Binary Search Tree (BST) and a range l-h(inclusive), count the number of nodes in the BST that lie in the given range.
+
+The values smaller than root go to the left side
+The values greater and equal to the root go to the right side
+*/
+
+ //Function to count number of nodes in BST that lie in the given range.
+    getCount(root, low, high)
+    {
+        //your code here
+    let count=0
+    function findCount(root, low, high){
+        
+        if(root){
+          
+            findCount(root.left,low,high,count)
+            findCount(root.right,low,high,count)
+
+            if(root.data>=low && root.data<=high) return count = count+1;
+
+        }
+        return count
+    }
+    
+   
+    return findCount(root, low, high)
+    }
